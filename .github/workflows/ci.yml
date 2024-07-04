@@ -1,23 +1,22 @@
-name: CI Workflow
+name: Install Docker
 
-on:
-  push:
-    branches:
-      - main  # adjust branch name as needed
+on: [workflow_dispatch]
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # sets the operating system for the job
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2  # action to checkout the repository
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Run Tests
-        run: |
-          # Replace with your testing commands
-          echo "Running tests..."
-          git install
-          git --version
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+
+    - name: Install Docker Compose
+      run: |
+        sudo apt-get update
+        sudo apt-get install docker-compose
+
 
 
