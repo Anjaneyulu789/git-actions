@@ -23,6 +23,8 @@ jobs:
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
+        with:
+          distribution: 'default'  # Specify the Linux distribution, e.g., 'default', 'ubuntu', 'alpine', etc.
 
       - name: Build and Test with Maven
         run: |
