@@ -1,0 +1,23 @@
+name: CI Workflow
+
+on:
+  push:
+    branches:
+      - main  # adjust branch name as needed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # sets the operating system for the job
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2  # action to checkout the repository
+
+      - name: Run Tests
+        run: |
+          # Replace with your testing commands
+          echo "Running tests..."
+          npm install
+          npm test
+
+
